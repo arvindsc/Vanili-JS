@@ -8,34 +8,86 @@
   For examples of using it with htmlWebpackPlugin,
   see https://github.com/jaketrent/html-webpack-template/blob/master/index.ejs
   -->
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <!--
+	<!--
     The htmlWebpackPlugin will parse the logic below so that trackJS is only added to the production version of index.html (since only webpack.config.prod.js provides the trackJS token)
     This is an example of how to add features to index.html for only one environment.
    -->
-    <% if (htmlWebpackPlugin.options.trackJSToken) { %>
-    <!-- BEGIN TRACKJS -->
-    <script type="text/javascript">window._trackJs = { token: '<%=htmlWebpackPlugin.options.trackJSToken%>' };</script>
-    <script type="text/javascript" src="https://cdn.trackjs.com/releases/current/tracker.js"></script>
-    <!-- END TRACKJS -->
-    <% } %>
-  <meta charset="UTF-8">
+	<% if (htmlWebpackPlugin.options.trackJSToken) { %>
+		<!-- BEGIN TRACKJS -->
+		<script type="text/javascript">
+			window._trackJs = {
+				token: '<%=htmlWebpackPlugin.options.trackJSToken%>'
+			};
+		</script>
+		<script type="text/javascript" src="https://cdn.trackjs.com/releases/current/tracker.js"></script>
+		<!-- END TRACKJS -->
+		<% } %>
+			<meta charset="UTF-8">
+			<style>
+				.outerContainer {}
+				
+				.innerConatiner {}
+				
+				.content {
+					width: 100% max-width: 1200px;
+					margin: 0 auto;
+				}
+				
+				header,ul {
+					display: flex;
+					align-items: center;
+					width: 100%;
+					background: #eee;
+					padding: 20px;
+				}
+				
+				.flex-content {
+					order: 1;
+				}
+			</style>
 </head>
-<body>
-  <h1>Users</h1>
-  <table>
-    <thead>
-      <th>&nbsp;</th>
-      <th>Id</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Email</th>
-    </thead>
-    <tbody id="users">
 
-    </tbody>
-  </table>
+<body>
+
+	<div class='outerContainer'>
+		<div class='innerConatiner'>
+			<div class="content">
+				<header class='clearfix'>
+					<nav class='flex-content'>
+						<ul>
+							<li>Race To Dubai</li>
+							<li>Players</li>
+							<li>Rolex Series</li>
+							<li>T</li>
+							<li>R</li>
+							<li>Q</li>
+						</ul>
+					</nav>
+					<div class='search flex-content'>
+						Search
+					</div>
+				</header>
+			</div>
+		</div>
+	</div>
+
+	<h1>Users</h1>
+	<table>
+		<thead>
+			<th>&nbsp;</th>
+			<th>Id</th>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Email</th>
+		</thead>
+		<tbody id="users">
+
+		</tbody>
+	</table>
 </body>
+
 </html>
